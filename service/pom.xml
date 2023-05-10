@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>shf-parent</artifactId>
+        <groupId>com.atguigu</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>service</artifactId>
+<!--
+这个service是所有业务逻辑的父工程
+比如：权限管理模块，用户管理模块，会员管理模块，二手房模块，前端模块
+-->
+    <packaging>pom</packaging>
+    <modules>
+        <module>service-acl</module>
+        <module>service-house</module>
+        <module>service-user</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
