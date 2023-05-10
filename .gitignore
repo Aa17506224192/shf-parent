@@ -1,8 +1,8 @@
-#/common-util/target/
-#/model/target/
-#/service/service-acl/target/
-#/service/service-house/target/
-#/service/service-user/target/
-#/service-api/target/
-#/web/web-admin/target/
-##/web/web-front/target/
+/common-util/target/
+/model/target/
+/service/service-acl/target/
+/service/service-house/target/
+/service/service-user/target/
+/service-api/target/
+/web/web-admin/target/
+/web/web-front/target/
