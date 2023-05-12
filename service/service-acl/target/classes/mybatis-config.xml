@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--
+mybatis-3-config.dtd ： 表示约束文件，对mybatis里面的所有属性进行约束
+mybatis：表示mybatis框架
+3 ：mybatis框架的版本
+config：表示配置
+dtd：表示约束
+
+-->
+    <settings>
+<!--        开启驼峰命名-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    <plugins>
+<!--        分页小助手
+ctrl + alt +  空格 ：自动补全
+方言：在开发的时候有很多数据库，但是分页小助手压根不知道我们用的是哪个数据
+-->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+
+
+
+
+</configuration>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.dao.RoleDao">
+
+<!--    List<Role> findPage(Map<String, Object> filters);-->
+    <select id="findPage" resultType="Role">
+        select *
+        from acl_role
+        <where>
+            <if test="roleName != null and roleName != ''">
+                and role_name = #{roleName}
+            </if>
+            and is_deleted = 0
+        </where>
+        order by id desc
+    </select>
+
+<!--    void delete(Long id);-->
+<!--  逻辑删除 ：假的删除，改变is_delete 状态  -->
+    <update id="delete">
+        update acl_role set update_time=now(), is_deleted=1 where id=#{id}
+   </update>
+
+<!--    void update(Role role);-->
+    <update id="update">
+        update acl_role set
+        <if test="roleName!=null and roleName!=''">
+            role_name=#{roleName},
+        </if>
+        <if test="roleCode!=null and roleCode!=''">
+            role_code=#{roleCode},
+        </if>
+        <if test="description!=null and description!=''">
+            description=#{description},
+        </if>
+        update_time=now()
+        where id=#{id}
+
+    </update>
+
+
+
+
+
+
+<!--    Role getById(Long id);-->
+    <select id="getById" resultType="Role">
+        select * from acl_role where id=#{id}
+    </select>
+
+<!--    void insert(Role role);-->
+    <insert id="insert">
+        insert into acl_role(role_name,    role_code,    description) values (#{roleName},    #{roleCode},    #{description})
+    </insert>
+
+
+
+
+    <!--    List<Role> findAll();
+    is_deleted : 是否删除 0：表示没有删除，1表示删除
+    逻辑删除：不会真正的把数据删除，会把数据存到数据库，使用is_deleted标记，假的删除
+    物理删除：真的删除
+    -->
+    <select id="findAll" resultType="role">
+        select * from acl_role where is_deleted = 0
+    </select>
+
+
+</mapper>

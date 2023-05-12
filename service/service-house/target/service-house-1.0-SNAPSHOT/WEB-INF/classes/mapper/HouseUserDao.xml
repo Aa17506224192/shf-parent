@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.dao.HouseUserDao">
+
+    <!--添加房东-->
+    <insert id="insert">
+        insert into hse_house_user(house_id,name,phone,sex,id_no)
+        values(#{houseId},#{name},#{phone},#{sex},#{idNo})
+    </insert>
+
+    <!--根据id查询房东信息-->
+    <select id="getById" resultType="houseUser">
+        select *
+        from hse_house_user
+        where id = #{id} and is_deleted = 0
+    </select>
+
+    <!--更新房东信息-->
+    <update id="update">
+        update hse_house_user set
+        <if test="houseId != null">
+            house_id = #{houseId},
+        </if>
+        <if test="name != null">
+            name = #{name},
+        </if>
+        <if test="phone != null">
+            phone = #{phone},
+        </if>
+        <if test="sex != null">
+            sex = #{sex},
+        </if>
+        <if test="idNo != null">
+            id_no = #{idNo},
+        </if>
+        update_time = now()
+        where id = #{id}
+    </update>
+
+    <!--删除房东信息-->
+    <update id="delete">
+        update hse_house_user
+        set is_deleted = 1
+        where id = #{id}
+    </update>
+
+<!--    List<HouseUser> findListByHouseId(Long id);-->
+    <select id="findListByHouseId" resultType="HouseUser">
+        select * from hse_house_user where house_id=#{id} and is_deleted=0
+    </select>
+</mapper>
