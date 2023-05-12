@@ -19,11 +19,6 @@ public class DictController extends BaseController {
     @Reference
     private DictService dictService;
 
-
-    /**
-     * 根据父节点找子节点，根据区域找到板块
-     * axios.get("/dict/findListByParentId/"+id)
-     */
     @RequestMapping("/findListByParentId/{id}")
     public Result<List<Dict>> findListByParentId(@PathVariable Long id){
         List<Dict> list = dictService.findListByParentId(id);
@@ -32,11 +27,7 @@ public class DictController extends BaseController {
 
 
 
-    /**
-     * 根据编码获取子节点数据列表
-     * @param dictCode
-     * @return
-     */
+
     @GetMapping(value = "/findListByDictCode/{dictCode}")
     public Result<List<Dict>> findListByDictCode(@PathVariable String dictCode) {
         List<Dict> list = dictService.findListByDictCode(dictCode);

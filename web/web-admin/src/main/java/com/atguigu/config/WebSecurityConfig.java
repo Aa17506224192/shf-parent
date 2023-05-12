@@ -38,17 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.exceptionHandling().accessDeniedHandler(new CustomAccessDeineHandler());
     }
 
-    /**
-     * 模拟一个用户
-     */
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        // 配置用户名和密码
-//        auth.inMemoryAuthentication()
-//                .withUser("zhangsan")
-//                .password(new BCryptPasswordEncoder().encode("123456"))
-//                .roles("");
-//    }
+
 
 
 
